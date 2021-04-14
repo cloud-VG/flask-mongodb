@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Students Registry</title>
+{% endblock %}
+
+
+{% block body %}
+
+<hr>
+
+<h3>Edit</h3>
+<form action="/registry/edit/{{ student.prn }}" method="post">
+    <label for="prn">PRN:</label>
+    <input class="form-control" type="text" name="prn" id="prn" value="{{ student.prn }}" required>
+  <br>
+    <label for="f_name">First Name:</label>
+  <input class="form-control" type="text" name="f_name" id="f_name" value="{{ student.f_name }}" required>
+  <br>
+    <label for="l_name">Last Name:</label>
+  <input class="form-control" type="text" name="l_name" id="l_name" value="{{ student.l_name }}" required>
+  <br>
+    <label for="m_name">Mother's Name:</label>
+  <input class="form-control" type="text" name="m_name" id="m_name" value="{{ student.m_name }}" required>
+  <br>
+    <label for="branch">Branch:</label>
+  <select class="form-select" name="branch" id="branch" required>
+            <option value="">-----</option>
+            {% if 'CST' in student.branch %}
+              <option selected>CST</option>
+            {% else %}
+              <option>CST</option>
+            {% endif %}
+
+            {% if 'ECT' in student.branch %}
+              <option selected>ECT</option>
+            {% else %}
+              <option>ECT</option>
+            {% endif %}
+
+            {% if 'MECH' in student.branch %}
+              <option selected>MECH</option>
+            {% else %}
+              <option>MECH</option>
+            {% endif %}
+
+            {% if 'CIVIL' in student.branch %}
+              <option selected>CIVIL</option>
+            {% else %}
+              <option>CIVIL</option>
+            {% endif %}
+
+            {% if 'FT' in student.branch %}
+              <option selected>FT</option>
+            {% else %}
+              <option>FT</option>
+            {% endif %}
+          </select>
+  <br>
+    <label for="year">Year:</label>
+    <select class="form-select" name="year" id="year" required>
+            <option value="">-----</option>
+
+            {% if 'First Year' in student.year %}
+              <option selected>First Year</option>
+            {% else %}
+              <option>First Year</option>
+            {% endif %}
+
+            {% if 'Second Year' in student.year %}
+              <option selected>Second Year</option>
+            {% else %}
+              <option>Second Year</option>
+            {% endif %}
+
+            {% if 'Third Year' in student.year %}
+              <option selected>Third Year</option>
+            {% else %}
+              <option>Third Year</option>
+            {% endif %}
+
+            {% if 'Final Year' in student.year %}
+              <option selected>Final Year</option>
+            {% else %}
+              <option>Final Year</option>
+            {% endif %}
+        </select>
+  <br>
+  <input class="btn btn-success" type="submit" value="Save">
+</form>
+
+<hr>
+
+{% endblock %}

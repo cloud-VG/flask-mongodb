@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Students Registry</title>
+{% endblock %}
+
+
+{% block body %}
+<br>
+
+<div>
+    <h3 style="display:inline">All students</h3>
+    <a style="display:inline" class="btn btn-success float-right" href="/registry/add" >Add Student</a>
+</div>
+    <hr>
+  {% for student in students %}
+    <h4>{{ student.f_name }} {{ student.l_name }}</h4>
+    <h6>PRN: {{ student.prn }}</h6>
+    <h6>Mother's Name: {{ student.m_name }}</h6>
+    <h6>Branch: {{ student.branch }}</h6>
+    <h6>Year: {{ student.year }}</h6>
+    <a class="btn btn-danger" href="/registry/delete/{{ student.prn }}">Delete</a>
+    <a class="btn btn-primary" href="/registry/edit/{{ student.prn }}">Edit</a>
+    <br>
+    <hr>
+    <br>
+  {% endfor %}
+
+{% endblock %}

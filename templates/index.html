@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Students Registry</title>
+{% endblock %}
+
+
+{% block body %}
+    <div>
+      <div class="bg-light p-5 rounded">
+        <div class="col-sm-8 mx-auto">
+          <h1>Welcome</h1>
+          <p>Sample students registry app created using Flask and MongoDB</p>
+          <p>
+            <a class="btn btn-dark" href="/registry/add" role="button">Add new student &raquo;</a>
+              <a class="btn btn-primary" href="/registry" role="button">View all students &raquo;</a>
+          </p>
+        </div>
+      </div>
+    </div>
+{% endblock %}
