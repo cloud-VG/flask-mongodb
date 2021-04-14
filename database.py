@@ -10,7 +10,6 @@ from pymongo import MongoClient
 from decouple import config
 from typing import List, Dict
 from models import Student
-from flask import request
 
 MONGO_URL = config('MONGO_URL')
 
@@ -28,7 +27,7 @@ def get_students() -> List[Dict]:
     return students
 
 
-def add_student(form: request.form) -> None:
+def add_student(form) -> None:
     """Add student document to database.
 
     Parameters:
@@ -44,7 +43,7 @@ def add_student(form: request.form) -> None:
         collection.insert_one(student.to_doc())
 
 
-def update_student(prn: str, form: request.form) -> None:
+def update_student(prn: str, form) -> None:
     """Update student document.
 
     Parameters:
