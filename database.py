@@ -14,7 +14,7 @@ from flask import request
 
 MONGO_URL = config('MONGO_URL')
 
-client = MongoClient(MONGO_URL)
+client = MongoClient('mongodb+srv://admin:admin1234@cluster0.ww4ix.mongodb.net/student?retryWrites=true&w=majority')
 db = client['student']
 collection = db['students']
 
